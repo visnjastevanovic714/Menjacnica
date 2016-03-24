@@ -9,12 +9,16 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv==null || naziv.isEmpty())
+			throw new RuntimeException("Naziv ne sme biti prazan");
 		this.naziv = naziv;
 	}
 	public String getSkracenica() {
 		return skracenica;
 	}
 	public void setSkracenica(String skracenica) {
+		if(skracenica==null || skracenica.isEmpty())
+			throw new RuntimeException("Skracenica ne sme biti prazna");
 		this.skracenica = skracenica;
 	}
 	@Override
