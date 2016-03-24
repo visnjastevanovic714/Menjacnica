@@ -11,6 +11,8 @@ public class Menjacnica implements MenjacnicaInterface {
 	
 	@Override
 	public void dodajKurs(String naziv, Kurs kurs) {
+		if(naziv==null || kurs==null)
+			throw new RuntimeException("Greska pri unosu kursa ili naziva valute");
 		for(int i=0;i<valute.size();i++){
 			if(valute.get(i).getNaziv().equals(naziv))
 				valute.get(i).getKursevi().add(kurs);
@@ -19,6 +21,8 @@ public class Menjacnica implements MenjacnicaInterface {
 
 	@Override
 	public void obrisiKurs(String naziv, Kurs kurs) {
+		if(naziv==null || kurs==null)
+			throw new RuntimeException("Greska pri unosu kursa ili naziva valute");
 		for(int i=0;i<valute.size();i++){
 			if(valute.get(i).getNaziv().equals(naziv))
 				valute.get(i).getKursevi().remove(kurs);
@@ -27,6 +31,8 @@ public class Menjacnica implements MenjacnicaInterface {
 
 	@Override
 	public Kurs pronadjiVratiKurs(String naziv, GregorianCalendar dan) {
+		if(naziv==null || dan==null)
+			throw new RuntimeException("Greska pri unosu dana ili naziva valute");
 		Kurs k = new Kurs();
 		for(int i=0;i<valute.size();i++){
 			if(valute.get(i).getNaziv().equals(naziv)){
